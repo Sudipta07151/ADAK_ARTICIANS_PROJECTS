@@ -5,7 +5,7 @@ export default function Reservation() {
     const queryParse=new URLSearchParams(queryString);
     console.log(queryParse.get("name"));
     return (
-        <div>
+        <div className="absolute top-36 left-0">
             RESERVATIONS
             {queryString}
             {queryParse.get("name")}

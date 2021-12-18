@@ -17,11 +17,13 @@ export default function Navbar() {
   };
 
   const signHandle = () => {
-    history.push('/sign');
+    handleClick();
+    history.push("/sign");
   };
 
   const registerHandle = () => {
-    history.push('/register');
+    handleClick();
+    history.push("/register");
   };
 
   const context = useContext(ThemeContext);
@@ -72,7 +74,9 @@ export default function Navbar() {
           <button className="login_signup" onClick={registerHandle}>
             SIGNUP
           </button>
-          <button className="login_signup" onClick={signHandle}>LOGIN</button>
+          <button className="login_signup" onClick={signHandle}>
+            LOGIN
+          </button>
         </div>
         <div className=" p-2 basis-1/4">
           <svg
@@ -92,19 +96,32 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className="hidden rounded-lg shadow bg-white drawer h-96 absolute top-20 right-1"
+        className="hidden lg:hidden rounded-lg drawer h-96 absolute top-20 right-1"
         ref={side_drawer}
       >
-        <div className="flex flex-col items-center justify-center drawer-content"></div>
         <div>
-          <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-            <li>
-              <a>Menu Item</a>
-            </li>
-            <li>
-              <a>Menu Item</a>
-            </li>
-          </ul>
+          <nav className="p-4 overflow-y-auto w-80">
+            <NavLink exact to="/" className="burger_link_tabs">
+              HOME
+            </NavLink>
+            <NavLink to="restaurants" className="burger_link_tabs">
+              RESTAURANTS
+            </NavLink>
+            <NavLink to="order" className="burger_link_tabs">
+              ORDER
+            </NavLink>
+            <NavLink to="reservation" className="burger_link_tabs">
+              RESERVATION
+            </NavLink>
+          </nav>
+          <div className="flex flex-row justify-center items-center basis-2/3">
+            <button className="burger_login_signup" onClick={registerHandle}>
+              SIGNUP
+            </button>
+            <button className="burger_login_signup" onClick={signHandle}>
+              LOGIN
+            </button>
+          </div>
         </div>
       </div>
     </div>

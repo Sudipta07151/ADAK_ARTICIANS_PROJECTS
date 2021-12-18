@@ -1,4 +1,50 @@
+import { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+
 export default function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [ree_password, setReePassword] = useState("");
+  const [user, setUser] = useState("");
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePaswords = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleReePaswords = (e) => {
+    setReePassword(e.target.value);
+  };
+
+  const handleUserName = (e) => {
+    setUser(e.target.value);
+  };
+  const handleSubmit = () => {
+    const data = {
+      email,
+      password,
+      ree_password,
+      user,
+    };
+    if (password === ree_password) {
+      setReePassword("");
+      setUser("");
+      setEmail("");
+      setPassword("");
+      toast("DONE", {
+        autoClose: 1500,
+      });
+      console.log(data);
+    } else {
+      toast("FAILED", {
+        autoClose: 1500,
+      });
+    }
+  };
+
   return (
     <>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 h-screen">
@@ -17,6 +63,8 @@ export default function Register() {
                     User Name
                   </label>
                   <input
+                    value={user}
+                    onChange={handleUserName}
                     id="user-name"
                     name="user-name"
                     type="text"
@@ -31,6 +79,8 @@ export default function Register() {
                     Email address
                   </label>
                   <input
+                    value={email}
+                    onChange={handleEmail}
                     id="email-address"
                     name="email"
                     type="email"
@@ -45,6 +95,8 @@ export default function Register() {
                     Password
                   </label>
                   <input
+                    value={password}
+                    onChange={handlePaswords}
                     id="password"
                     name="password"
                     type="password"
@@ -59,6 +111,8 @@ export default function Register() {
                     Reenter Password
                   </label>
                   <input
+                    value={ree_password}
+                    onChange={handleReePaswords}
                     id="reenter-password"
                     name="reenter-password"
                     type="reenter-password"
@@ -71,6 +125,7 @@ export default function Register() {
               </div>
               <div>
                 <button
+                  onClick={handleSubmit}
                   type="submit"
                   className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
@@ -81,6 +136,7 @@ export default function Register() {
             </form>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </>
   );

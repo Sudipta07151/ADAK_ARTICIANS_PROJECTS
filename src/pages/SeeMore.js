@@ -8,7 +8,7 @@ export default function SeeMore() {
   const url = "http://localhost:4000/restaurants/" + param.id;
   const { data } = useFetchMenuData(url);
   return (
-    <div className=" bg-amber-300 text-xl">
+    <div className=" bg-amber-300 text-xl absolute top-36 left-0">
       {data && (
         <>
           <p>{data.name}</p>
