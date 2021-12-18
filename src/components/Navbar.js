@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
@@ -6,13 +7,21 @@ import { ThemeContext } from "../context/ThemeContext";
 
 export default function Navbar() {
   const side_drawer = useRef();
+  const history = useHistory();
   const handleClick = (e) => {
-    console.log(e);
-    if(side_drawer.current.classList.contains("hidden")){
+    if (side_drawer.current.classList.contains("hidden")) {
       side_drawer.current.classList.remove("hidden");
-    }else{
-      side_drawer.current.classList.add("hidden");      
+    } else {
+      side_drawer.current.classList.add("hidden");
     }
+  };
+
+  const signHandle = () => {
+    history.push('/sign');
+  };
+
+  const registerHandle = () => {
+    history.push('/register');
   };
 
   const context = useContext(ThemeContext);
@@ -22,7 +31,10 @@ export default function Navbar() {
         <div className="logo_text text-4xl font-extrabold font-logofont">
           ARTICIANS
         </div>
-        <div className="visible lg:invisible" onClick={handleClick}>
+        <div
+          className="visible lg:invisible btn btn-primary"
+          onClick={handleClick}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -57,8 +69,10 @@ export default function Navbar() {
       </div>
       <div className="hidden lg:flex flex-row basis-2/12 justify-end items-center gap-2">
         <div className="bg-white p-3 rounded-md shadow-md shadow-yellow-400 flex flex-row basis-2/3">
-          <button className="login_signup">SIGNUP</button>
-          <button className="login_signup">LOGIN</button>
+          <button className="login_signup" onClick={registerHandle}>
+            SIGNUP
+          </button>
+          <button className="login_signup" onClick={signHandle}>LOGIN</button>
         </div>
         <div className=" p-2 basis-1/4">
           <svg
@@ -77,14 +91,12 @@ export default function Navbar() {
           </svg>
         </div>
       </div>
-      <div className="hidden rounded-lg shadow bg-white drawer drawer-end h-72 absolute top-20 right-1" ref={side_drawer}>
-        <div className="flex flex-col items-center justify-center drawer-content">
-          <label htmlFor="my-drawer-4" className="btn btn-primary drawer-button">
-            open menu
-          </label>
-        </div>
-        <div className="drawer-side" >
-          <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+      <div
+        className="hidden rounded-lg shadow bg-white drawer h-96 absolute top-20 right-1"
+        ref={side_drawer}
+      >
+        <div className="flex flex-col items-center justify-center drawer-content"></div>
+        <div>
           <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             <li>
               <a>Menu Item</a>
