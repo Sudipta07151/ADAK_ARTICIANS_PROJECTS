@@ -1,13 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+nav a.active {
+  color: white;
+  background-color: blueviolet;
+  border-radius: 2px;
+  padding: 8px;
+  transform: rotate(-2deg);
+}
+
+nav a.active:hover {
+  color: white;
+}
+
+.link_tabs{
+  @apply hover:text-purple-500 hover:rotate-2 font-extralight mx-4;
+}
+
+.login_signup{
+  @apply text-white text-xl font-thin bg-purple-700 mx-2 px-2 py-1 shadow-sm shadow-purple-700 hover:text-slate-100 hover:bg-purple-600;
+}
+
+.background_color{
+  @apply bg-amber-300;
+}
+
+.logo_text{
+  @apply text-fuchsia-900
 }
