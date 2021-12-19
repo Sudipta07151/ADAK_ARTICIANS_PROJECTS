@@ -1,10 +1,8 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useFetchMenuData } from "../hooks/useFetchMenusData";
-import { useState,useEffect } from "react";
 
 export default function SeeMore() {
   const param = useParams();
-  //const history = useHistory();
   const url = "http://localhost:4000/restaurants/" + param.id;
   const { data } = useFetchMenuData(url);
   return (
