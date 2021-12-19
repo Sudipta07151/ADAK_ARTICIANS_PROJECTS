@@ -58,7 +58,7 @@ export default function Navbar() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-10 w-10"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -102,14 +102,14 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className="hidden lg:hidden rounded-lg drawer h-96 absolute top-20 right-1"
+        className="hidden lg:hidden rounded-lg drawer h-96 absolute top-20 right-1 z-40"
         ref={side_drawer}
       >
         <div>
           <div className="w-full flex flex-row items-center justify-center">
             <AvatarMenu />
           </div>
-          <nav className="p-4 overflow-y-auto w-80 z-1">
+          <nav className="p-4 overflow-y-auto w-80 z-10">
             <NavLink exact to="/" className="burger_link_tabs">
               HOME
             </NavLink>

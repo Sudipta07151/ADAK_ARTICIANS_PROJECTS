@@ -8,12 +8,14 @@ import SeeMore from "./pages/SeeMore";
 import Navbar from "./components/Navbar";
 import SignIn from "./pages/SignIn";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div
       id="App"
-      className=" bg-gradient-to-b from-yellow-300 to-orange-400 w-screen"
+      className=" bg-gradient-to-b from-yellow-300 to-orange-400 w-screen z-10"
     >
       <BrowserRouter>
         <Navbar />
@@ -36,6 +38,9 @@ function App() {
           <Route path="/sign">
             <SignIn />
           </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
           <Route path="/register">
             <Register />
           </Route>
@@ -43,6 +48,7 @@ function App() {
             <Redirect to="/home" />
           </Route>
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );
